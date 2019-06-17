@@ -5,15 +5,38 @@
 	</head>
 	<body>
 		
+<style>	
+	#iframe-wrapper {
+  position: relative;
+}
+
+#iframe-overlay {
+  height: 80px;
+  width: 520px;
+  background-color: #fff;
+  position: relative;
+  top: -80px;
+  left: 0px;
+}
+
+#iframe-overlay2 {
+  height: 145px;
+  width: 520px;
+  background-color: #fff;
+  position: relative;
+  top: -700px;
+  left: 0px;
+}
+
+</style>		
 		
 		
-		
-		
-<div id="content">
-<div style="height: 800px;">
-<div style="height: 600px;"><iframe style="position: absolute; clip: rect(190px,1100px,800px,250px); top: -160px; left: -160px;" src="https://docs.google.com/spreadsheets/d/1YMLS71t_58laIGDacbaYiglb7FOYkqBIGLSqGGKX0Ys/edit?usp=sharing;single=true&amp;widget=true&amp;headers=false" width="100%" height="100%" frameborder="0" scrolling="no"></iframe></div>
+<div id="iframe-wrapper">
+  <iframe src="https://docs.google.com/spreadsheets/d/1YMLS71t_58laIGDacbaYiglb7FOYkqBIGLSqGGKX0Ys/edit?usp=sharing;single=true&amp;widget=true&amp;headers=false" width="500" height="600px"></iframe>
+  <div id="iframe-overlay"></div>
+  <div id="iframe-overlay2"></div>
 </div>
-</div>
+
 		
 		
 		
