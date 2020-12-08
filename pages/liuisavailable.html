@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">     
+  </head>
+  <body>
+  <div id="calendar-container"></div>
+      <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.4/jstz.min.js"></script>
+   <script type="text/javascript">
+      var timezone = encodeURIComponent(jstz.determine().name()); 
+      var pref = '<iframe src="https://calendar.google.com/calendar/embed?src=sudarchuk%40gmail.com&mode=WEEK&showPrint=0&showNav=0&showCalendars=0&ctz=';
+      var suff = '" style=" border-width:0 " width="800" height="1200" frameborder="0" scrolling="no"></iframe>';
+      var iframe_html = pref + timezone + suff;
+      document.getElementById('calendar-container').innerHTML = iframe_html;
+  </script>
+  </body>
+</html>
