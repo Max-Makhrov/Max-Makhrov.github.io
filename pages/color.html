@@ -11,18 +11,31 @@
     </div>
     
    <script type="text/javascript">
+     // function for encoding query params
+     // https://stackoverflow.com/a/1099670/5372400
+      function getQueryParams(qs) {
+          qs = qs.split('+').join(' ');
+          var params = {},
+              tokens,
+              re = /[?&]?([^=]+)=([^&]*)/g;
+          while (tokens = re.exec(qs)) {
+              params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+          }
+          return params;
+      }
+     
+     
      console.log('Greetings!');
-     const queryString = window.location.search;
-     console.log(queryString);
-     const urlParams = new URLSearchParams(queryString);
-     console.log(urlParams);
-     const hex = urlParams.get('hex');
-     console.log(hex);
+     const queryString = getQueryParams(document.location.search);
+     console.log(JSON.stringify(queryString));
+     const hex = queryString.hex;
      console.log(hex);
      if (hex) {
        const input = document.getElementById("color");
-       input.value = hex;
+       if (hex.substring(0, 1) !== '#') { hex = '#' + hex; }
+       input.value = hex.substring(0, 1);;
      }
+ 
   </script>
   </body>
 </html>
