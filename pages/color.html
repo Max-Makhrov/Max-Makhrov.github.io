@@ -28,7 +28,7 @@
      console.log('Greetings!');
      const queryString = getQueryParams(document.location.search);
      console.log(JSON.stringify(queryString));
-     const hex = queryString.hex;
+     let hex = queryString.hex;
      console.log(hex);
      if (hex) {
        const input = document.getElementById("color");
