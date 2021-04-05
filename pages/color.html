@@ -5,20 +5,85 @@
   </head>
   <body>
     <div>
-        <label for="body">Chose a color</label>
-        <input type="color" id="color" name="color"
-                value="#f6b73c">     
+      <label for="body">Chose a color</label>
+      <input type="color" id="color" name="color"
+                value="#f6b73c" onchange="updateColorFromInput();">     
+    </div>
+    
+    <div>
+      <input type="text" value="#f6b73c" id="hex">
+      <button onclick="copyHex()">Copy hex-code</button>
+    </div>
+    
+    <div>
+      <input type="text" value="https://max-makhrov.github.io/pages/color#f6b73c" id="url">
+      <button onclick="copyUrl()">Copy URL</button>
     </div>
     
    <script type="text/javascript">
-     let hex = window.location.hash.substr(1);
-     console.log(hex);
-     if (hex) {
-       const input = document.getElementById("color");
-       if (hex.substring(0, 1) !== '#') { hex = '#' + hex; }
-       input.value = hex;
+     
+     updateColor(null);
+     
+     function updateColor(hexCode) {
+       // [ 1 ]. get hex code from url
+       let hex;
+       if (hexCode) {
+         hex = hexCode;
+       } else {
+         // get hex from url
+         hex = window.location.hash.substr(1);
+         console.log(hex);
+         if (hex) {
+           const input = document.getElementById("color");
+           if (hex.substring(0, 1) !== '#') { hex = '#' + hex; }
+           input.value = hex;
+         } else 
+         {
+           hex = "#f6b73c";
+         }
+       }
+
+       // [ 2 ]. set hex code of label
+       let hexInput =  getHex();
+       hexInput.value = hex;
+
+       // [ 3 ]. set url text
+       var urlInput = getUrl();
+       urlInput.value = "" + hex;
+
+       // set background color
+       document.body.style.background = hex;
      }
+     
+     function updateColorFromInput() {
+       const input = document.getElementById("color");
+        updateColor(input.value);
+     }
+     
+     
+     function getHex() {
+       return copyText = document.getElementById("hex");
+     }
+     function getUrl() {
+       return copyText = document.getElementById("url");
+     }
+     
+     // copy hex code
+    function copyHex() {
+      let copyText =  getHex();
+      copyText.select();
+      copyText.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+    } 
  
+     // copy url code
+    function copyUrl() {
+      let copyText =  getUrl();
+      copyText.select();
+      copyText.setSelectionRange(0, 99999)
+      document.execCommand("copy");
+    } 
+     
   </script>
   </body>
 </html>
