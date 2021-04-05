@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">     
+  </head>
+  <body>
+    <div>
+        <label for="body">Chose a color</label>
+        <input type="color" id="color" name="color"
+                value="#f6b73c">     
+    </div>
+    
+   <script type="text/javascript">
+     const queryString = window.location.search;
+     const urlParams = new URLSearchParams(queryString);
+     const hex = urlParams.get('hex');
+     console.log(hex);
+     if (hex) {
+       const input = document.getElementById("color");
+       input.value = hex;
+     }
+  </script>
+  </body>
+</html>
