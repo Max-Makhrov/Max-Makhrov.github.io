@@ -11,9 +11,13 @@
     </div>
     
    <script type="text/javascript">
+     console.log('Greetings!');
      const queryString = window.location.search;
+     console.log(queryString);
      const urlParams = new URLSearchParams(queryString);
+     console.log(urlParams);
      const hex = urlParams.get('hex');
+     console.log(hex);
      console.log(hex);
      if (hex) {
        const input = document.getElementById("color");
