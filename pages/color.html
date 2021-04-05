@@ -11,24 +11,7 @@
     </div>
     
    <script type="text/javascript">
-     // function for encoding query params
-     // https://stackoverflow.com/a/1099670/5372400
-      function getQueryParams(qs) {
-          qs = qs.split('+').join(' ');
-          var params = {},
-              tokens,
-              re = /[?&]?([^=]+)=([^&]*)/g;
-          while (tokens = re.exec(qs)) {
-              params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
-          }
-          return params;
-      }
-     
-     
-     console.log('Greetings!');
-     const queryString = getQueryParams(document.location.search);
-     console.log(JSON.stringify(queryString));
-     let hex = queryString.hex;
+     let hex = window.location.hash.substr(1);
      console.log(hex);
      if (hex) {
        const input = document.getElementById("color");
