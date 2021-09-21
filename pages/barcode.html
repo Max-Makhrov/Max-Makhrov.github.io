@@ -1,0 +1,19 @@
+<svg id="barcode"></svg>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">     
+  </head>
+  <body>
+   <script src="JsBarcode.all.min.js"></script>
+   <canvas id="barcode"></canvas>
+    
+   <script type="text/javascript">
+     // var { createCanvas } = require("canvas");
+     // var canvas = createCanvas();
+     // JsBarcode(canvas, "Hello");
+     JsBarcode("#barcode", "Hi!");
+   </script>
+  </body>
+</html>
