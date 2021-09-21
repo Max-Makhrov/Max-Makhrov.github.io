@@ -8,10 +8,15 @@
    <canvas id="barcode"></canvas>
     
    <script type="text/javascript">
-     // var { createCanvas } = require("canvas");
-     // var canvas = createCanvas();
-     // JsBarcode(canvas, "Hello");
-     JsBarcode("#barcode", "12345678901231", {
+     function getCodeFromUrl() {
+       let code = window.location.hash.substr(1);
+       console.log(code);
+       if (!code) {
+         code = "12345678901231"; // dummy
+       }
+       return code;
+     }
+     JsBarcode("#barcode", getCodeFromUrl(), {
         format: "ITF14"
      });
    </script>
